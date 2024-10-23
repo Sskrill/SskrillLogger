@@ -8,4 +8,7 @@ logger:=NewCSLogger(opts *slog.HandlerOptions)
 ```go
 logger.PrintInfo("Some Info","someArgs")
 ```
-
+**How download**
+````
+go get -u github.com/Sskrill/SskrillLogger
+````
