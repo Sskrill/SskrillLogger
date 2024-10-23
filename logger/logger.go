@@ -6,20 +6,20 @@ import (
 	"os"
 )
 
-type customLogger struct {
+type CustomLogger struct {
 	logger *slog.Logger
 }
 
-func NewCSLoggerSTDOUT(opts *slog.HandlerOptions) customLogger {
+func NewCSLoggerSTDOUT(opts *slog.HandlerOptions) CustomLogger {
 	handler := slog.NewTextHandler(os.Stdout, opts)
-	return customLogger{logger: slog.New(handler)}
+	return CustomLogger{logger: slog.New(handler)}
 }
-func (cL customLogger) PrintInfo(info string, infoArgs ...interface{}) {
+func (cL CustomLogger) PrintInfo(info string, infoArgs ...interface{}) {
 	cL.logger.Info(fmt.Sprintf(info, infoArgs))
 }
-func (cL customLogger) PrintError(error string, errorArgs ...interface{}) {
+func (cL CustomLogger) PrintError(error string, errorArgs ...interface{}) {
 	cL.logger.Error(fmt.Sprintf(error, errorArgs))
 }
-func (cL customLogger) PrintDebug(debug string, debugArgs ...interface{}) {
+func (cL CustomLogger) PrintDebug(debug string, debugArgs ...interface{}) {
 	cL.logger.Debug(fmt.Sprintf(debug, debugArgs))
 }
